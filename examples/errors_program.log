@@ -1,0 +1,22 @@
+ERROR | line 1 | Invalid DEFINE directive format | DEFINE MISSING_AS 42
+ERROR | line 2 | Invalid alias name '1forbidden' | DEFINE 1FORBIDDEN AS 1
+ERROR | line 3 | Invalid alias value '1+2' | DEFINE BAD AS 1+2
+ERROR | line 5 | Alias 'dup' already exists | DEFINE DUP AS 2
+ERROR | line 11 | Invalid USED directive format | USED
+ERROR | line 12 | Invalid label name 'no_dot' | USED no_dot
+ERROR | line 17 | Invalid PSEUDO directive format | PSEUDO NOTHING NOP
+ERROR | line 18 | Invalid pseudo-instruction name 'tst2' | PSEUDO TST2 TO LDI {0} {1}
+ERROR | line 19 | Instruction 'ldi' already exists | PSEUDO LDI TO UDI 0 {0} 1
+ERROR | line 21 | Pseudo-instruction 'zz' already exists | PSEUDO ZZ TO UDI 1 {0} {1}
+ERROR | Undefined alias 'phantom'
+ERROR | Undefined label '.missing_label'
+ERROR | line 15 | Undefined alias 'hlt' | .label_with_instruction: HLT
+ERROR | line 27 | Undefined alias 'phantom' | LDI R1 ORPHAN
+ERROR | line 28 | Circular alias detected for 'loop_a' | LDI R1 LOOP_A
+ERROR | line 15 | Labels must be alone on their line | .label_with_instruction: HLT
+ERROR | line 26 | Invalid operand count for 'ldi' | LDI R1
+ERROR | line 30 | Unsupported instruction 'foo' | FOO R1 R2
+WARNING | line 22 | Constant 99 does not fit in 2 bits | PSEUDO PBAD TO UDI 99 {0} 1
+WARNING | Alias 'never_used' is defined but never used
+WARNING | Pseudo-instruction 'never' is defined but never used
+WARNING | line 25 | Value truncated to 8 bits: 300 -> 44 | LDI R1 300
